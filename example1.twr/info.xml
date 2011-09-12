@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ruleset xmlns="armycalc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="armycalc http://armycalc.com/xmls/twr3info.xsd" version="3.0">
+  
+  <!--
+  This have to be unique for every ruleset.
+  Revision can be used by software to cehck if created army was made by older ruleset or so.
+  you should always upgrate the revision number by one if you are publishing any changes
+  -->
+  <uid>armycalc.twr3.test01</uid>
+  <revision>3</revision>
+  
+  <!--
+  Definition of languages.
+  This is an optional tag. You can write one-language rulesets
+  If you define this one language needs to be marked as default
+  please see transtab files to check how this works
+  -->
+  <languages>
+	<language id="pl">
+	  <transtab src="lang/polish.xml"/>
+	  <name>Polski (polish)</name>
+	</language>
+    <language id="en" default="true">
+      <transtab src="lang/english.xml"/>
+      <name>English</name>
+    </language>
+  </languages>
+  
+  <!--
+  basic ruleset info.
+  Please note how does the translations work.
+  Transtabs are just simple key-value pairs collection.
+  Editor will look in selected language transtab file for a key equal to given text and replace it.
+  If key wont be found nothing will be replaced.
+  So for short pieces of text you can use default (English?) values and keep English transtab empty.
+  For longer text you can use any identifier (using ###SOMETHING### would be good convention)
+  -->
+  <name>Example TWR 3.0</name>
+  <author>francio</author>
+  <description>###RULESET_DESCRIPTION###</description>
+  
+  <!--
+  Ruleset icon.
+  -->
+  <icon src="icon.png"/>
+  
+  <!--
+  Stat fields that would be possible to define for every element.
+  The display attribute will make this stat shown on the default army list and in the editor
+  -->
+  <stats>
+    <stat id="str" display="true">
+      <name>strength</name>
+	  <shortname>Str</shortname>
+      <default>5</default>
+    </stat>
+    <stat id="sta" display="true">
+      <name>stamina</name>
+	  <shortname>Sta</shortname>
+      <default>5</default>
+    </stat>
+    <stat id="spe" display="true">
+      <name>speed</name>
+      <shortname>Spe</shortname>
+      <default>5</default>
+    </stat>
+    <stat id="hp" display="true">
+      <name>hitpoints</name>
+	  <name>HP</name>
+      <shortname>HP</shortname>
+      <default>10</default>
+    </stat>
+	<stat id="us">
+      <name>unit size</name>
+	  <name>US</name>
+	  <shortname>US</shortname>
+      <default>1</default>
+    </stat>
+  </stats>
+ 
+  <!--
+  Here we can define units that would be later on summed up when creating army. In most cases you will need only one unit.
+  If you use <cost>10</cost> later on it would be interpreted as 10 of default unit( pts in this example )
+  -->
+  <costs>
+	<cost id="pts" default="true">
+	  <name>Points</name>
+	  <shortname>pts</shortname>
+	  <unit>pts</unit>
+	  <default>0</default>
+	</cost>
+	<cost id="gc">
+	  <name>Gold Coins</name>
+	  <shortname>GC</shortname>
+	  <unit>coins</unit>
+	  <default>0</default>
+	</cost>
+  </costs>
+  
+
+  <!--
+  here we can optionally define what would be set as default in an army creation dialog.
+  -->
+  <defaultArmyName>Army</defaultArmyName>
+ 
+  <defaultArmySize>
+	<cost id="pts">1500</cost>
+	<cost id="gold">10</cost>
+  </defaultArmySize>
+
+
+  <mainmenu>
+	<menu id="menu-core-units">
+	  <name>Core units
+	  </name>
+	  <menu id="menu-infantry-units">
+		<name>Infantry</name>
+	  </menu>
+	  <menu id="menu-cavalry-units">
+		<name>Cavalry</name>
+	  </menu>
+	</menu>
+	<menu id="menu-special-units">
+	  <name>Special units</name>
+	</menu>
+	<menu id="menu-heroes-units">
+	  <name>Heroes</name>
+	</menu>
+  </mainmenu>
+  
+  <errors>
+	<error class="error">
+	  <uid>heroes-warriors-wrong-count</uid>
+	  <message>###ERROR_1###</message>
+	</error>
+	<error class="warning">
+	  <uid>test-error</uid>
+	  <message>###ERROR_2###</message>
+	</error>
+  </errors>
+
+  <!--
+  This will be shown in a select dialog when creating new army.
+  You can check which model was selected using your validation script 
+  and make a special set of rules for a tuornament or so.
+  You can write totally different validation script for a model 
+  but you can check selected model inside the validation script as well.
+  You need to define at least one model.
+  note that models can optionally override tags: defaultArmyName and defaultArmySize
+  -->
+  <models>
+	<model id="default-model" default='true'>
+		<name>Default Model</name>
+		<elements src="equipment.xml"></elements>
+		<elements src="core_units.xml"></elements>
+		<elements src="special_units.xml"></elements>
+		<elements src="heroes.xml"></elements>
+		<validator src="validator.js"></validator>
+	</model>
+   	<model id="tournament-model">
+		<name>Tournament model</name>
+		<defaultArmyName>Tournament army</defaultArmyName>
+		<elements src="equipment.xml"></elements>
+		<elements src="core_units.xml"></elements>
+		<elements src="special_units.xml"></elements>
+		<elements src="tournament_heroes.xml"></elements>	
+		<validator src="validator.js"></validator>
+	</model>
+  </models>
+
+</ruleset>

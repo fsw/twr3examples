@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transtab xmlns="armycalc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="armycalc http://armycalc.com/xmls/twr3transtab.xsd" version="3.0">
+  <text>
+    <key>Example TWR 3.0</key>
+    <value>Przykładowy TWR 3.0</value>
+  </text>
+  <text>
+    <key>###RULESET DESCRIPTION###</key>
+    <value>
+	  Ten przykładowy zestaw zasad pokazuje jak działa ArmyCalc i TWR 3.0.
+	  Podziękowania dla http://gamenaminator.com/male-rpg.php za nazwy bohaterów i http://www.reinerstilesets.de/ za obrazki.
+	</value>
+  </text>
+  <text>
+	<key>###ERROR_1###</key>
+    <value>Armia może zawierać tylko jednego Bohatera na każde trzy oddziały wojowników.</value>
+  </text>
+  <text>
+	<key>###ERROR_2###</key>
+    <value>To ostrzeżenie pojawia się przy każdej walidacji i nie da się tego zmienić.</value>
+  </text>
+  <text>
+	<key>Core units</key>
+	<value>Jednostki podstawowe</value>
+  </text>
+  <text>
+	<key>Infantry</key>
+	<value>Piechota</value>
+  </text>
+  <text>
+	<key>Cavalry</key>
+	<value>Kawaleria</value>
+  </text>
+  <text>
+	<key>Special units</key>
+	<value>Jednostki specjalne</value>
+  </text>
+  <text>
+	<key>Heroes</key>
+	<value>Bohaterowie</value>
+  </text>
+</transtab>

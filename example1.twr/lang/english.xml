@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transtab xmlns="armycalc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="armycalc http://armycalc.com/xmls/twr3transtab.xsd" version="3.0">
+  <text>
+	<key>###RULESET DESCRIPTION###</key>
+    <value>
+	  This is an example Ruleset.
+	  It shows the basic concepts of ArmyCalc and TWR 3.0.
+	  Credits go to http://gamenaminator.com/male-rpg.php for heroes names and http://www.reinerstilesets.de/ for units thumbnails.
+	</value>
+  </text>
+  <text>
+	<key>###ERROR_1###</key>
+    <value>Army can have only 1 hero for each 3 warriors units.</value>
+  </text>
+  <text>
+	<key>###ERROR_2###</key>
+    <value>This warning is issued in every validation and there is nothing you can do about it.</value>
+  </text>
+</transtab>
